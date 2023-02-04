@@ -39,7 +39,9 @@ const upload = multer({storage})
 app.use('/auth/register', upload.single('picture'), Register)
 app.use('/auth', UserRoutes)
 app.use('/task', TaskRoutes)
-
+app.get('/', (req,res) => {
+    res.send('This is a vercel response')
+})
 dotenv.config()
 
 app.use((err,req,res,next) => {
